@@ -1,0 +1,9 @@
+*{
+    font-family: monospace;
+}
+
+td{
+    width: 100px;
+    height: 100px;
+    background-color: wheat;
+}
