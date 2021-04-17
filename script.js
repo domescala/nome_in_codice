@@ -10,9 +10,12 @@ var colore = {blue:"#248eff",
     red:"#dc3545",
     black:"#1b1b1b",
     yellow:"wheat",
-    white:"white"
+    white:"white",
+    grey:"#c9c9c9"
 
 }
+var url = document.URL;
+var key = url.split("?")[1];
 
 //      array per le due squadre e per l'assassino 
 var red = new Array();
@@ -52,56 +55,17 @@ function estraiParole(){
 
 }}
 
-function mostraParole(parole){
+function mostraParole(indici_parole){
 
     for (let index = 0; index < 25; index++) {
 
         var posN = "p_pos"+index; // come indice uso i valori dentro la squadra
         const cella = document.getElementById(posN);
-        cella.innerHTML = elenco[indici_parole_estratte[index]];
+        cella.innerHTML = elenco[indici_parole[index]];
     }
 }
 
 
-
-    // estrazione delle caselle blu rosse e di quella nera
-    // l'estrazione prevede numeri da 0 a 25 che indicano la "coordinata" della casella
-// function estraiTabellone(){ 
-
-//     // inizializzo le squadre
-
-//     var set_totale = new Set();
-//     // una squadra ha una parola in più dell'altra -> 8 o 9
-//     //  creo un array con l'8 e il 9 e li mescolo random
-//     var n = moneta(8,9);  
-//     // passo il set_totale del tabellone (per evitare le ripetizioni) e il numero di parole da assegnare alla squadra (8 o 9)
-//     red = estraiCaselle(set_totale, n[0]);  
-//     blue = estraiCaselle(set_totale, n[1]); 
-//     black = estraiCaselle(set_totale, 1); // estraggo anche l'assassino che è uno solo
-// }
-
-// function estraiCaselle(set_totale, num) { // estraggo le caselle per una squadra o per l'assassino
-    
-
-//     var arr_squadra = new Array(num);     // creo un set per la squadra
-//     console.log("parte " +num);
-//     for (let index = 0; index < num; index++) {
-//     console.log("indice = " +index);
-
-
-//         var a = Math.floor(Math.random() * 25);
-
-//         while(set_totale.has(a)){   // se la casella è già uscita ritento
-//            var a = Math.floor(Math.random() * 25); 
-//         }
-//     console.log("valore uscito" +a);
-//         set_totale.add(a);  // aggiorno il tabellone totale e la squadra
-//         arr_squadra[a] = true;
-//     }
-//     return arr_squadra;  // restituisco la squadra
-
-
-// }
 
 function estraiCaselle() {
     agenti = new Array(25);
@@ -180,11 +144,32 @@ function creaTabellone() {
 
                 const td = document.createElement("TD");
                 const p = document.createElement("P");
+                const divRed = document.createElement("DIV");
+                const divBlue = document.createElement("DIV");
+                const divNull = document.createElement("DIV");
+
+                divRed.className = "check";
+                divBlue.className = "check";
+                divNull.className = "check";
+
+                divRed.style.backgroundColor = colore.red;
+                divBlue.style.backgroundColor = colore.blue;
+                divNull.style.backgroundColor = colore.yellow;
+
+                divRed.setAttribute("onclick", "active('td_pos"+i+"','"+colore.red+"')");
+                divBlue.setAttribute("onclick", "active('td_pos"+i+"','"+colore.blue+"')");
+                divNull.setAttribute("onclick", "active('td_pos"+i+"','"+colore.yellow+"')");
+                
 
                 td.id = "td_pos"+i;
                 p.id = "p_pos"+i;
 
                 document.body.appendChild(tab).appendChild(tr).appendChild(td).appendChild(p);
+                document.body.appendChild(tab).appendChild(tr).appendChild(td).appendChild(document.createElement("BR"));
+
+                document.body.appendChild(tab).appendChild(tr).appendChild(td).appendChild(divRed);
+                document.body.appendChild(tab).appendChild(tr).appendChild(td).appendChild(divBlue);
+                document.body.appendChild(tab).appendChild(tr).appendChild(td).appendChild(divNull);
 
                 i++;
             }
@@ -192,7 +177,10 @@ function creaTabellone() {
         }
 }
 
-
+function active(id, c) {
+    document.getElementById(id).style["border-right"] = "40px solid "+  c;
+    
+}
 
 // function soluzioneSquadra(squadra, colore) {
 //     var posN;
@@ -217,24 +205,42 @@ function creaTabellone() {
 //     document.getElementById("td_pos"+black[0]).style.backgroundColor = colore.black;   
 //     document.getElementById("td_pos"+black[0]).style.color = "white";   
 // }
-
+var soluzioneOFF = true;
 function soluzione() {
+
+
     for (let index = 0; index < agenti.length; index++) {
-        document.getElementById("td_pos"+index).style.backgroundColor = colore.yellow;
-        document.getElementById("td_pos"+index).style.color = colore.black;
+        
+        active("td_pos"+index, colore.grey);
+        // document.getElementById("td_pos"+index).style.color = colore.black;
 
-        if (agenti[index] == "red") {
+        if (agenti[index] == "red" && soluzioneOFF) {
+            active("td_pos"+index, colore.red);
+            // document.getElementById("td_pos"+index).style.backgroundColor = colore.red; 
+        }
+        else if(agenti[index] == "blue" && soluzioneOFF){
+            active("td_pos"+index, colore.blue);
+            // document.getElementById("td_pos"+index).style.backgroundColor = colore.blue;
+        }
+        else if(agenti[index] == "black" && soluzioneOFF){
+            active("td_pos"+index, colore.black);
 
-            document.getElementById("td_pos"+index).style.backgroundColor = colore.red; 
+            
+
+            // document.getElementById("td_pos"+index).style.backgroundColor = colore.black;
+            // document.getElementById("td_pos"+index).style.color = colore.white;
         }
-        else if(agenti[index] == "blue"){
-            document.getElementById("td_pos"+index).style.backgroundColor = colore.blue;
-        }
-        else if(agenti[index] == "black"){
-            document.getElementById("td_pos"+index).style.backgroundColor = colore.black;
-            document.getElementById("td_pos"+index).style.color = colore.white;
-        }
-    
+
+    }        
+    if (soluzioneOFF) {
+        soluzioneOFF = false;
+        document.getElementById("soluzione").innerHTML = "Nascondi soluzione"
+
+    }
+    else{
+        soluzioneOFF = true;
+        document.getElementById("soluzione").innerHTML = "Soluzione"
+
     }
     
     
@@ -272,21 +278,27 @@ function creaCodicePartita() {
 
 // function partita() {
     //estraiCaselle();
-    creaTabellone();
-    estraiParole();
-    mostraParole(parole);
-    var tokenM = creaTokenMaster();
+    
+    
+    
+    var tokenM ;
 
-    var codice_partita = creaCodicePartita();
+    var codice_partita ;
 // }
+if (key) {
+    settaleparole(key);
+    document.getElementById("via").hidden = true       ;
 
+}
 function settaleparole(codice) {
+    creaTabellone();
+    var code = codice.split(".");
     for (let index = 0; index < 25; index++) {
-        
-        var code = codice.split(".");
-        parole[index] = elenco[Number[code[index]]];
+        code[index] = Number(code[index]);
+
     }
-    mostraParole();
+    
+    mostraParole(code);
     
 }
 
@@ -294,8 +306,23 @@ function convertiTestoinNumero(){
     
 }
 
-function VIA() {
+function via() {
+
     estraiCaselle();
-    soluzione();
-    
+    creaTabellone();
+    estraiParole();
+    mostraParole(indici_parole_estratte);
+    tokenM = creaTokenMaster();
+
+    codice_partita = creaCodicePartita();
+
+
+    document.getElementById("soluzione").hidden = false   ;
+    document.getElementById("via").hidden = true       ;
+    document.getElementById("idpartita").innerHTML = "ID partita: "+codice_partita;
+    document.getElementById("linkpartita").innerHTML =  "link partita";
+    document.getElementById("linkpartita").setAttribute("href", "http://127.0.0.1:5500/nome_in_codice/?"+codice_partita)  ;
+
+
+
 }

@@ -1,9 +1,19 @@
 *{
-    font-family: monospace;
+    font-family: "roboto", monospace;
 }
 
 td{
     width: 100px;
     height: 100px;
-    background-color: wheat;
+    border: 2px solid rgb(173, 173, 173);
+    border-right: 40px solid #c9c9c9;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+div.check{
+    border-radius: 5px;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    margin: 5px;
 }
