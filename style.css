@@ -1,6 +1,5 @@
 *{
     font-family: "roboto", monospace;
-    border: 0.2px solid orange;
 }
 
 td{
@@ -17,33 +16,4 @@ div.check{
     height: 10px;
     display: inline-block;
     margin: 5px;
-}
-
-#corpo-codice{
-    display: flex;;
-}
-p{
-    display: inline-flex;
-    margin-left: 10px;
-}
-
-.div1{
-    width: 100px;
-    display: flex;
-}
-.buttred, .buttblu, .buttnul{
-    width: 20px;
-    height: 20px;
-    border-radius: 10px;
-    margin: 3px;
-    display: inline-flex;
-}
-.buttblu{
-    background-color: rgb(77, 110, 182);
-}
-.buttred{
-    background-color: rgb(230, 81, 81);
-}
-.buttnul{
-    background-color: rgb(255, 237, 187);
 }
