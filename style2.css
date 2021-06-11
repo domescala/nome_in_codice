@@ -14,7 +14,7 @@ body{
     border-radius: 5px;
     text-align: center;
     background-color: rgb(255, 255, 255);
-    box-shadow: 0px 0px 6px rgb(202,202,202);
+    box-shadow: 1px 1px 10px rgb(202,202,202);
 
     color:rgb(32, 32, 32)
 }
@@ -28,7 +28,7 @@ body{
     margin-left: 0px;
     margin-right: 0px;
     background-color: rgb(255, 255, 255);
-    box-shadow: 0px 0px 6px rgb(202,202,202);
+    box-shadow: 1px 1px 10px rgb(202,202,202);
 }
 .agente p{
     margin: 10px;
@@ -41,28 +41,33 @@ body{
 .blu{
     background-color: rgb(58, 123, 209);
     color: white;
-    box-shadow: 0px 0px 6px rgb(58, 123, 209)
+    box-shadow: 1px 1px 10px rgb(58, 123, 209)
 
 }
 
 .red{
     background-color: rgb(255, 70, 70);
     color: white;
-    box-shadow: 0px 0px 6px rgb(255, 70, 70);
+    box-shadow: 1px 1px 10px rgb(255, 70, 70);
 
 }
 
 .passante{
     background-color: rgb(255, 223, 159);
     color: rgb(20, 20, 20);
-    box-shadow: 0px 0px 6px rgb(255, 223, 159);
+    box-shadow: 1px 1px 10px rgb(255, 223, 159);
 }
 .nero{
     background-color: rgb(22, 22, 22);
     color: white;
+    box-shadow: 1px 1px 10px rgba(22, 22, 22, 0.52);
+
 }
 .barrato{
-    text-decoration: line-through;
+    opacity: 0.4;
+    filter: brightness(0.7);
+    box-shadow: none;
+
 }
 
 a{
