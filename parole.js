@@ -66,3 +66,5 @@ console.log("a")
 function c(t) {
     console.log(t)
 }
+
+document.querySelector("#share a").href = document.URL.split("?")[0]
