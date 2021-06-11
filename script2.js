@@ -1,10 +1,11 @@
 var colori_agenti = coloriRandom(9,8);
 var parole = serieRandom(n_parole, elenco.length)
-button.addEventListener("click", buttonStart);
+// button.addEventListener("click", buttonStart);
 p_condividi.addEventListener("click", shareboxtog);
 
-
 codificaPartita(parole, colori_agenti)
+// il tasto start apre direttamente il link di invito
+document.querySelector("#start a").href = document.URL.split("?")[0] + "?" + codice_partita.link
 
 function serieRandom(tot,range) {//restituisce "tot" numeri random non ripetuti in un "range"
     var set = new Set()
@@ -153,18 +154,18 @@ function gameStart() {
 if (link_partita) {
 
 }
-function buttonStart(){
-    div0.style.display = "";
-    share.style.display = "";
+// function buttonStart(){
+//     div0.style.display = "";
+//     share.style.display = "";
 
-    doc_link_capitani.href = document.URL.split("?")[0] + "?" + codice_partita.link
-    doc_link_agenti.href = document.URL.split("?")[0] + "?" + codice_partita.parole
+//     doc_link_capitani.href = document.URL.split("?")[0] + "?" + codice_partita.link
+//     doc_link_agenti.href = document.URL.split("?")[0] + "?" + codice_partita.parole
 
-    button.style.display = "none";
-    c("si")
-    setupCapi();
-    assegnaParole();
-}
+//     button.style.display = "none";
+//     c("si")
+//     setupCapi();
+//     assegnaParole();
+// }
 
 function shareboxtog(){
     
