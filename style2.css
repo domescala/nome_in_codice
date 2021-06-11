@@ -1,0 +1,183 @@
+*{
+    font-family: Inter;
+    font-size: 26px;
+}
+body{
+    background-color: rgb(255, 255, 255);
+    margin: 0px;
+}
+.agente{
+    /* width: 60px; */
+    margin:5px;
+    /* margin-left: 10px;
+    margin-right: 10px; */
+    border-radius: 5px;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 6px rgb(202,202,202);
+
+    color:rgb(32, 32, 32)
+}
+#tabellone{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    word-wrap: break-word;
+    padding: 10px;
+    margin: 20px;
+    margin-left: 0px;
+    margin-right: 0px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 6px rgb(202,202,202);
+}
+.agente p{
+    margin: 10px;
+    cursor:pointer;
+}
+.agente p::first-letter{
+    text-transform: uppercase;
+}
+
+.blu{
+    background-color: rgb(58, 123, 209);
+    color: white;
+    box-shadow: 0px 0px 6px rgb(58, 123, 209)
+
+}
+
+.red{
+    background-color: rgb(255, 70, 70);
+    color: white;
+    box-shadow: 0px 0px 6px rgb(255, 70, 70);
+
+}
+
+.passante{
+    background-color: rgb(255, 223, 159);
+    color: rgb(20, 20, 20);
+    box-shadow: 0px 0px 6px rgb(255, 223, 159);
+}
+.nero{
+    background-color: rgb(22, 22, 22);
+    color: white;
+}
+.barrato{
+    text-decoration: line-through;
+}
+
+a{
+    text-decoration: none;
+    color: unset;
+}
+button{
+color: white;
+font-size: 16px;
+padding: 10px 25px 10px 25px;
+height: auto;
+border-radius: 25px;
+line-height: 1.5;
+margin: 10px;
+background-color: rgb(255, 148, 25);
+box-shadow: 0px 10px 0px rgb(219, 132, 32);
+border:none;
+cursor: pointer;
+
+}
+button:active{
+    box-shadow: 0px 5px 0px rgb(219, 132, 32);
+    transform: translate(0px, 5px)
+}
+
+
+#share
+{
+    display: flex;
+    align-content: center;
+    padding-top: 20px;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 6px rgb(202 202 202); */
+}
+#share div{
+    display: flex;
+    padding: 5px;
+    margin: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+#share p{
+    margin: 0px;
+    margin-top: 20px;
+    text-align: center  ;
+    font-weight: bold;
+    color: rgb(2, 2, 2);
+    font-size: 18px;
+}
+#link_capitani button{
+box-shadow: unset;
+    background-color: rgb(255, 255, 255);
+    border: 1px black solid;
+
+    color: black
+}
+#link_agenti button{
+box-shadow: unset;
+    background-color: rgb(255, 255, 255);
+    border: 1px black solid;
+    color: black
+}
+
+
+#start{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: 20vh;
+
+}
+#start button{
+    background-color: rgb(255, 28, 58);
+    box-shadow: 0px 10px 0px rgb(196, 27, 50);
+    font-size: 26px;
+}
+#start button:active{
+    box-shadow: 0px 5px 0px rgb(196, 27, 50);
+    transform: translate(0px, 5px)
+
+}
+
+
+.hidden{
+    display: none;
+}
+
+@media (min-width:700px){  
+
+#tabellone{
+   
+   
+    width: 650px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+
+
+}
+p{
+    font-size: 26px;
+}
+.agente{
+    margin: 10px;
+}
+}

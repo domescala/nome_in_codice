@@ -1,19 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style2.css">
+    <title>Nome in codice</title>
 </head>
 <body>
-    
-        <button id="soluzione" onclick="soluzione()" hidden>Soluzione</button>
-        <button id="via" onclick="via(this)">Avvia una partita</button>
+ 
 
-        <p id="idpartita" >  </p>
-        <a id="linkpartita" >  </a>
-        <script src="script.js"></script>
+    <div id="tabellone" >
+        <div class="agente"><p></p></div>
+        <div class="agente"><p></p></div>
+        <div class="agente"><p></p></div>
+        <div class="agente"><p></p></div>
+        <div class="agente"><p></p></div>
+        <div class="agente"><p></p></div>
+        <div class="agente"><p></p></div>
+        <div class="agente"><p></p></div>
+        <div class="agente"><p></p></div>
+        <div class="agente"><p></p></div>
+        <div class="agente"><p></p></div>
+        <div class="agente"><p></p></div>
+        <div class="agente"><p></p></div>
+        <div class="agente"><p></p></div>
+        <div class="agente"><p></p></div>
+        <div class="agente"><p></p></div>
+        <div class="agente"><p></p></div>
+        <div class="agente"><p></p></div>
+        <div class="agente"><p></p></div>
+        <div class="agente"><p></p></div>
+        <div class="agente"><p></p></div>
+        <div class="agente"><p></p></div>
+        <div class="agente"><p></p></div>
+        <div class="agente"><p></p></div>
+
+        
+    </div>
+    <br>
+    <div id="start"><button><p>Nuova partita</p></button></div>
+
+    <div id="share">
+        <button>Condividi la partita!</button>
+        
+        <div>
+            <a id="link_capitani" href="."><button>Con i capitani </button></a>
+            <br>
+            <a id="link_agenti" href="."> <button>Con gli Agenti</button> </a>
+        </div>
+
+    </div>
+    <script src="parole.js"></script>
+    <script src="script2.js"></script>
+    <script src="game.js"></script>
 </body>
 </html>
