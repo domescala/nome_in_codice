@@ -176,15 +176,6 @@ function creaTabellone() {
             
         }
 }
-function creaTabellone2(){
-    const div = document.createElement("DIV");
-    document.body.appendChild(div);
-    for (let i = 0; i < 25; i++) {
-        const div1 = document.createElement("DIV");
-        div1.className = "agente"
-        div.appendChild(div1);
-    }
-}
 
 function active(id, c) {
     document.getElementById(id).style["border-right"] = "40px solid "+  c;
