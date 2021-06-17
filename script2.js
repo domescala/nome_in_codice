@@ -45,14 +45,15 @@ function switchColor() {
     var t = this;
     var c = this.className;
 
-    if(!c.includes("blu")){
+    if(!c.includes("passante")){//ordine delle classi nel css: .passante, .blu, .rosso, .nero
+        t.classList.add("passante")
+        t.classList.add("filter")
+    }
+    else if(!c.includes("blu")){
         t.classList.add("blu")
     }
     else if(!c.includes("red")){
         t.classList.add("red")
-    }
-    else if(!c.includes("passante")){
-        t.classList.add("passante")
     }
     else{
         t.className = "agente"
@@ -70,11 +71,12 @@ function barrato() {
 function mostraSoluzione() {//solo per i capi
     let c = colori_agenti
 
-    div.forEach(e => {e.className = "agente"});
+    div.forEach(e => {e.className = "agente passante"}); //prima assegno a tutti il giallo
 
     c.blu.forEach(ea => {div[ea].classList.add("blu")});
     c.rossi.forEach(e => {div[e].classList.add("red")});
     div[c.nero].classList.add("nero")
+
 }
 
 function codificaPartita() {
